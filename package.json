@@ -1,7 +1,7 @@
 {
   "name": "vue-icons",
   "description": "webpack based - load only what you need - svg inline icons",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "homepage": "https://github.com/vue-comps",
   "author": {
     "name": "Paul Pflugradt",
@@ -84,9 +84,9 @@
     "build:vue": "NODE_ENV=production vue-compiler --out . src/*.vue",
     "build": "run-npm build:*",
     "dev": "vue-dev-server",
-    "watch:coffee" : "coffee --no-header --watch --output . src/icon-loader.coffee src/icon-font-compatible.coffee",
+    "watch:coffee": "coffee --no-header --watch --output . src/icon-loader.coffee src/icon-font-compatible.coffee",
     "watch:test": "karma start --browsers Chrome --auto-watch --reporters spec",
-    "watch":"run-npm watch:*",
+    "watch": "run-npm watch:*",
     "test": "karma start --single-run",
     "preversion": "npm test",
     "version": "npm run build && git add .",
