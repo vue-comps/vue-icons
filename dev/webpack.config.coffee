@@ -12,4 +12,12 @@ module.exports =
   resolve:
     extensions: ["",".webpack.js",".web.js",".js",".coffee",".vue"]
   callbackLoader:
-    require("../icon-loader.js")(["fa-glass","fa-cab","fa-bullhorn","mdi-account-alert","material-build","octicon-logo-github"])
+    require("../icon-loader.js")([
+      "fa-glass"
+      "fa-cab"
+      "fa-bullhorn"
+      "mdi-account-alert"
+      "material-build"
+      "octicon-logo-github"
+      "iconic-wrench"
+      ])

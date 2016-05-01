@@ -30,10 +30,15 @@ sets =
     svg: "octicons/octicons/octicons.svg"
   material:
     svg: "material-design-icons/iconfont/MaterialIcons-Regular.svg"
+  iconic:
+    svg: "open-iconic/font/fonts/open-iconic.svg"
+    style: "open-iconic/font/css/open-iconic.css"
+    re: /\.oi\[data-glyph=([^\]]+)\]:before { content:'\\([^']+)'; }/g
 
 processSet = (setname,set) ->
   if set.re
     aliases = loadAliases(fs.readFileSync(require.resolve(set.style, "utf8")),set.re)
+    console.log aliases
   glyphs = svgfont2js(fs.readFileSync(require.resolve(set.svg, "utf8")))
   re = /d="([\w\s-.]*)"/
   optimizers = []

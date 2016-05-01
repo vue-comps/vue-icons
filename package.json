@@ -54,6 +54,7 @@
     "mdi": "^1.5.54",
     "mocha": "^2.4.5",
     "octicons": "^3.5.0",
+    "open-iconic": "^1.1.1",
     "parse5": "^2.1.5",
     "script-runner": "^0.1.4",
     "style-loader": "^0.13.1",

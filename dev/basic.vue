@@ -22,6 +22,8 @@
     icon(name="material-build")
   p octicon-logo-github:
     icon(name="octicon-logo-github")
+  p iconic-wrench:
+    icon(name="iconic-wrench")
   a(href="https://github.com/vue-comps/vue-icons/blob/master/dev/basic.vue") source
 </template>
 

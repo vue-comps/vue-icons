@@ -2,11 +2,12 @@
 
 webpack based - load only what you need - svg inline icons.
 
-comes with:
-- [Font Awesome](https://fortawesome.github.io/Font-Awesome/icons/)
-- [Google Material Design Icons](https://design.google.com/icons/)
-- [Material Design Icons](https://materialdesignicons.com/)
-- [Octicons](https://octicons.github.com/)
+comes with (and prefixes):
+- [Font Awesome](https://fortawesome.github.io/Font-Awesome/icons/) - `fa`
+- [Google Material Design Icons](https://design.google.com/icons/) - `material`
+- [Material Design Icons](https://materialdesignicons.com/) - `mdi`
+- [Octicons](https://octicons.github.com/) - `octicon`
+- [Open Iconic](https://useiconic.com/open#icons) - `iconic`
 
 [Glyphicons](http://getbootstrap.com/components/#glyphicons) are currently broken [svgfont2js#1](https://github.com/riobard/svgfont2js/issues/1).
 
@@ -68,12 +69,6 @@ This has two additional props:
 | ---:| --- | ---| --- |
 | scale | Number | 1 | scale multiplier, 1 means height of 16px |
 | hcenter | Boolean | false | sets `margin-top` so that the icon will be centered in the parent element |
-
-#### Prefixes
-- [Font Awesome](https://fortawesome.github.io/Font-Awesome/icons/) - `fa`
-- [Google Material Design Icons](https://design.google.com/icons/) - `material`
-- [Material Design Icons](https://materialdesignicons.com/) - `mdi`
-- [Octicons](https://octicons.github.com/) - `octicon`
 
 #### Spinners
 comes without css, so no spinning included, you can do it manually like this:
