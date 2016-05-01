@@ -38,7 +38,6 @@ sets =
 processSet = (setname,set) ->
   if set.re
     aliases = loadAliases(fs.readFileSync(require.resolve(set.style, "utf8")),set.re)
-    console.log aliases
   glyphs = svgfont2js(fs.readFileSync(require.resolve(set.svg, "utf8")))
   re = /d="([\w\s-.]*)"/
   optimizers = []
