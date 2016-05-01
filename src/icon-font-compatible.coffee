@@ -1,7 +1,13 @@
+#
 # out: ../icon-font-compatible.js
 i = require "./icon"
 ifc =
+  template: i.template
   mixins: i.mixins
+  data: ->
+    style: null
+  attached: ->
+    @style = window.getComputedStyle(@$el)
   props:
     name: i.props.name
     flip: i.props.flip
@@ -11,14 +17,11 @@ ifc =
     box: i.computed.box
     flipped: i.computed.flipped
     height: ->
-      @style = window.getComputedStyle(@$el) unless @style
-      return @style.getPropertyValue("font-size").replace("px","")
-    width: ->
-      if @height?
-        @icon.w / @icon.h * @height
+      if @style
+        return parseFloat @style.getPropertyValue("font-size").replace("px","")
       return null
+    width: -> @icon.w / @icon.h * @height
     marginTop: ->
-      @style = window.getComputedStyle(@$el) unless @style
       height = parseInt @style.getPropertyValue("line-height").replace("px","")
       return (height-@height)/2+'px'
 

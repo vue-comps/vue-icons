@@ -35,7 +35,10 @@ module.exports =
     hcenter:
       type: Boolean
       default: false
-
+  data: ->
+    parent: null
+  attached: ->
+    @parent = @$el.parentElement
   computed:
     icon: ->
       tmp = @name.split("-")
@@ -59,8 +62,8 @@ module.exports =
       else
         return null
     marginTop: ->
-      if @hcenter and @$el.parentElement?
-        return (@$el.parentElement.clientHeight-@height)/2+'px'
+      if @hcenter and @parent?
+        return (@parent.clientHeight-@height)/2+'px'
       return null
 
 </script>
