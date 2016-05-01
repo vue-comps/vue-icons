@@ -24,24 +24,17 @@ module.exports =
     name:
       type: String
       required: true
+    size:
+      type: String
+      default: "16"
     scale:
-      type: Number
-      default: 1
-      coerce: (val) ->
-        val = Number(val)
-        return if isNaN(val) then 1 else val
-      validator: (val) -> Number(val) > 0
+      type: String
+      default: "1"
     flip: String
     label: String
     hcenter:
       type: Boolean
       default: false
-
-  data: ->
-    parent: null
-
-  attached: ->
-    @parent = @$el.parentElement
 
   computed:
     icon: ->
@@ -56,9 +49,8 @@ module.exports =
       else
         s = "0 0"
       return s+" #{@icon.w} #{@icon.h}"
-    width: ->
-      @icon.w / @icon.h * 16 * @scale
-    height: -> 16 * @scale
+    width: -> @icon.w / @icon.h * @height
+    height: -> parseFloat(@size)*parseFloat(@scale)
     flipped: ->
       if @flip == "h"
         return "scale(1,-1)"
@@ -67,9 +59,8 @@ module.exports =
       else
         return null
     marginTop: ->
-      if @hcenter and @parent?
-        return (@parent.clientHeight-@height)/2+'px'
+      if @hcenter and @$el.parentElement?
+        return (@$el.parentElement.clientHeight-@height)/2+'px'
       return null
-
 
 </script>

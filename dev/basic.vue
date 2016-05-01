@@ -12,8 +12,8 @@
     icon(name="fa-bullhorn")
   p fa-bullhorn (flip="v"):
     icon(name="fa-bullhorn",flip="v")
-  p fa-bullhorn (scale=2.43156):
-    icon(name="fa-bullhorn" scale=2.43156)
+  p fa-bullhorn (size=32):
+    icon(name="fa-bullhorn",size=32)
   p mdi-account-alert:
     icon(name="mdi-account-alert")
   p mdi-account-alert (style="color:red"):

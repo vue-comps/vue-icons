@@ -1,24 +1,25 @@
 # out: ../icon-font-compatible.js
 i = require "./icon"
-i.data = ->
-  style: null
-i.attached = ->
-  @style = window.getComputedStyle(@$el)
-i.computed.height = ->
-  if @style?
-    return @style.getPropertyValue("font-size").replace("px","")
-  return null
-i.computed.width = ->
-  if @height?
-    @icon.w / @icon.h * @height
-  return null
-i.computed.marginTop = ->
-  if @style?
-    height = parseInt @style.getPropertyValue("line-height").replace("px","")
-    return (height-@height)/2+'px'
-  return null
-i.props =
-  name: i.props.name
-  flip: i.props.flip
-  label: i.props.label
-module.exports = i
+ifc =
+  mixins: i.mixins
+  props:
+    name: i.props.name
+    flip: i.props.flip
+    label: i.props.label
+  computed:
+    icon: i.computed.icon
+    box: i.computed.box
+    flipped: i.computed.flipped
+    height: ->
+      @style = window.getComputedStyle(@$el) unless @style
+      return @style.getPropertyValue("font-size").replace("px","")
+    width: ->
+      if @height?
+        @icon.w / @icon.h * @height
+      return null
+    marginTop: ->
+      @style = window.getComputedStyle(@$el) unless @style
+      height = parseInt @style.getPropertyValue("line-height").replace("px","")
+      return (height-@height)/2+'px'
+
+module.exports = ifc

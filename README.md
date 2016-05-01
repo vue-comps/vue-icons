@@ -67,7 +67,8 @@ This has two additional props:
 
 | Name | type | default | description |
 | ---:| --- | ---| --- |
-| scale | Number | 1 | scale multiplier, 1 means height of 16px |
+| size | String | 16 | height of the icon in px |
+| scale | Number | 1 | size multiplier |
 | hcenter | Boolean | false | sets `margin-top` so that the icon will be centered in the parent element |
 
 #### Spinners
