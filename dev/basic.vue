@@ -19,7 +19,7 @@
   p mdi-account-alert:
     icon(name="mdi-account-alert",v-ref:mdi)
   p mdi-account-alert (style="color:red"):
-    icon(style="color:red" name="mdi-account-alert", v-ref:color)
+    icon(style="color: red;" name="mdi-account-alert", v-ref:color)
   p material-build:
     icon(name="material-build",v-ref:material)
   p octicon-logo-github:

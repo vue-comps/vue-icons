@@ -54,7 +54,7 @@ describe "icon", ->
 
     it "should color", ->
       el = env.$refs.color.$el
-      el.should.have.attr "style", "color:red"
+      el.should.have.attr "style", "color: red;"
 
     it "should hcenter", (done) ->
       el = env.$refs.hcenter.$el
