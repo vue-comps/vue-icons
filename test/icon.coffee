@@ -54,12 +54,12 @@ describe "icon", ->
 
     it "should color", ->
       el = env.$refs.color.$el
-      el.should.have.attr "style", "color: red;"
+      el.should.have.attr("style").match(/color: red/)
 
     it "should hcenter", (done) ->
       el = env.$refs.hcenter.$el
       env.$nextTick ->
-        el.should.have.attr "style", "margin-top: 12px;"
+        el.should.have.attr("style").match(/margin-top: 12px/)
         done()
 
 
@@ -80,5 +80,5 @@ describe "icon", ->
     it "should line-height", (done) ->
       el = env.$refs.lineHeight.$el
       env.$nextTick ->
-        el.should.have.attr "style", "margin-top: 10px;"
+        el.should.have.attr("style").match(/margin-top: 10px/)
         done()
