@@ -13,6 +13,19 @@ module.exports = (config) ->
           { test: /\.html$/, loader: "html"}
           { test: /\.css$/, loader: "style-loader!css-loader" }
         ]
+        postLoaders: [
+          { test: /icon/, loader: "callback-loader"}
+        ]
+      callbackLoader:
+        require("./icon-loader.js")([
+          "fa-glass"
+          "fa-cab"
+          "fa-bullhorn"
+          "mdi-account-alert"
+          "material-build"
+          "octicon-logo-github"
+          "iconic-wrench"
+          ])
     webpackMiddleware:
       noInfo: true
     files: ["test/*.coffee"]

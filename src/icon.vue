@@ -1,5 +1,5 @@
 // out: ..
-<template lang="jade">
+<template lang="pug">
 svg(version="1.1",
   :role="label ? 'img' : 'presentation'",
   :aria-label="label",
@@ -9,7 +9,10 @@ svg(version="1.1",
   display="inline-block",
   :style="{marginTop:marginTop}"
   )
-  path(:d="icon.d",:transform="flipped",fill="currentColor")
+  path(
+    :d="icon.d",
+    :transform="flipped",
+    fill="currentColor")
 </template>
 
 <script lang="coffee" >
@@ -17,7 +20,7 @@ getIcons()
 module.exports =
 
   mixins: [
-    require "vue-mixins/getVue"
+    require "vue-mixins/vue"
   ]
 
   props:
@@ -35,15 +38,18 @@ module.exports =
     hcenter:
       type: Boolean
       default: false
+
   data: ->
     parent: null
-  attached: ->
+
+  ready: ->
     @parent = @$el.parentElement
+
   computed:
     icon: ->
       tmp = @name.split("-")
       set = tmp.shift()
-      getIcon(set,@getVue().util.camelize(tmp.join("-")))
+      getIcon(set,@Vue.util.camelize(tmp.join("-")))
     box: ->
       if @flip == "h"
         s = "0 -#{@icon.h}"

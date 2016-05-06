@@ -6,7 +6,7 @@ ifc =
   mixins: i.mixins
   data: ->
     style: null
-  attached: ->
+  ready: ->
     @style = window.getComputedStyle(@$el)
   props:
     name: i.props.name
@@ -22,7 +22,9 @@ ifc =
       return null
     width: -> @icon.w / @icon.h * @height
     marginTop: ->
-      height = parseInt @style.getPropertyValue("line-height").replace("px","")
-      return (height-@height)/2+'px'
+      if @style
+        height = parseInt @style.getPropertyValue("line-height").replace("px","")
+        return (height-@height)/2+'px'
+      return null
 
 module.exports = ifc
