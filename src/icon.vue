@@ -1,18 +1,20 @@
 // out: ..
 <template lang="pug">
-svg(version="1.1",
-  :role="label ? 'img' : 'presentation'",
-  :aria-label="label",
-  :width="width",
-  :height="height",
-  :view-box.camel="box",
-  display="inline-block",
-  :style="{marginTop:marginTop}"
-  )
-  path(
-    :d="icon.d",
-    :transform="flipped",
-    fill="currentColor")
+span
+  svg(version="1.1",
+    :role="label ? 'img' : 'presentation'",
+    :aria-label="label",
+    :width="width",
+    :height="height",
+    :view-box.camel="box",
+    display="inline-block",
+    :style="{marginTop:marginTop}"
+    )
+    path(
+      :d="icon.d",
+      :transform="flipped",
+      fill="currentColor")
+  slot
 </template>
 
 <script lang="coffee" >
