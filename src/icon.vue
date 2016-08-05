@@ -7,8 +7,7 @@ span
     :width="width",
     :height="height",
     :view-box.camel="box",
-    display="inline-block",
-    :style="{marginTop:marginTop}"
+    display="inline-block"
     )
     path(
       :d="icon.d",
@@ -23,6 +22,7 @@ module.exports =
 
   mixins: [
     require "vue-mixins/vue"
+    require "vue-mixins/setCss"
   ]
 
   props:
@@ -46,7 +46,7 @@ module.exports =
 
   ready: ->
     @parent = @$el.parentElement
-
+    @marginTop
   computed:
     icon: ->
       tmp = @name.split("-")
@@ -71,7 +71,9 @@ module.exports =
         return null
     marginTop: ->
       if @hcenter and @parent?
-        return (@parent.clientHeight-@height)/2+'px'
+        @setCss @$el, "line-height", @parent.clientHeight+"px"
+      else
+        @setCss @$el, "line-height"
       return null
 
 </script>

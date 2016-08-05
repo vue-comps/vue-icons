@@ -1,5 +1,5 @@
 <template lang="pug">
-.container
+.container(style="font-size:12pt")
   p fa-glass:
     icon(name="fa-glass",v-ref:fa)
   p fa-taxi:
@@ -26,7 +26,9 @@
     icon(name="octicon-logo-github",v-ref:octicon)
   p iconic-wrench:
     icon(name="iconic-wrench",v-ref:iconic)
-  p(style="height:40px;border: 1px solid black") iconic-wrench (hcenter)
+  p(style="height:40px;border: 1px solid black") iconic-wrench (height:40px without hcenter):
+    icon(name="iconic-wrench")
+  p(style="height:40px;border: 1px solid black; position:relative") iconic-wrench (height:40px with hcenter):
     icon(name="iconic-wrench",hcenter,v-ref:hcenter)
   a(href="https://github.com/vue-comps/vue-icons/blob/master/dev/basic.vue") source
 </template>

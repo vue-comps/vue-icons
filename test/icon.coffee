@@ -57,9 +57,9 @@ describe "icon", ->
       el.should.have.attr("style").match(/color: red/)
 
     it "should hcenter", (done) ->
-      el = env.$refs.hcenter.$el.firstChild
+      el = env.$refs.hcenter.$el
       env.$nextTick ->
-        el.should.have.attr("style").match(/margin-top: 12px/)
+        el.offsetTop.should.equal 11
         done()
 
 
@@ -78,7 +78,7 @@ describe "icon", ->
         done()
 
     it "should line-height", (done) ->
-      el = env.$refs.lineHeight.$el.firstChild
+      el = env.$refs.lineHeight.$el
       env.$nextTick ->
-        el.should.have.attr("style").match(/margin-top: 10px/)
+        el.offsetTop.should.be.within 7,8
         done()

@@ -1,4 +1,3 @@
-#
 # out: ../icon-font-compatible.js
 i = require "./icon"
 ifc =
@@ -21,10 +20,6 @@ ifc =
         return parseFloat @style.getPropertyValue("font-size").replace("px","")
       return null
     width: -> @icon.w / @icon.h * @height
-    marginTop: ->
-      if @style
-        height = parseInt @style.getPropertyValue("line-height").replace("px","")
-        return (height-@height)/2+'px'
-      return null
+    marginTop: -> return null
 
 module.exports = ifc
