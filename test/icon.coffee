@@ -59,7 +59,7 @@ describe "icon", ->
     it "should hcenter", (done) ->
       el = env.$refs.hcenter.$el
       env.$nextTick ->
-        el.offsetTop.should.equal 11
+        el.should.have.attr("style").match(/padding-top: 12px/)
         done()
 
 
@@ -80,5 +80,5 @@ describe "icon", ->
     it "should line-height", (done) ->
       el = env.$refs.lineHeight.$el
       env.$nextTick ->
-        el.offsetTop.should.be.within 7,8
+        el.should.have.attr("style").match(/padding-top: 10px/)
         done()
