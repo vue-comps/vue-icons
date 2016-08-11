@@ -1,13 +1,12 @@
 // out: ..
 <template lang="pug">
-span
+span(v-bind:style="computedStyle")
   svg(version="1.1",
     :role="label ? 'img' : 'presentation'",
     :aria-label="label",
     :width="width",
     :height="height",
     :view-box.camel="box",
-    display="inline-block"
     )
     path(
       :d="icon.d",
@@ -22,10 +21,12 @@ module.exports =
 
   mixins: [
     require "vue-mixins/vue"
-    require "vue-mixins/setCss"
+    require "vue-mixins/style"
   ]
 
   props:
+    style:
+      default: -> []
     name:
       type: String
       required: true
@@ -46,7 +47,7 @@ module.exports =
 
   ready: ->
     @parent = @$el.parentElement
-    @marginTop
+
   computed:
     icon: ->
       tmp = @name.split("-")
@@ -69,11 +70,15 @@ module.exports =
         return "scale(-1,1)"
       else
         return null
-    marginTop: ->
+    paddingTop: ->
       if @hcenter and @parent?
-        @setCss @$el, "line-height", @parent.clientHeight+"px"
-      else
-        @setCss @$el, "line-height"
+        return (@parent.clientHeight-@height)/2
       return null
+    mergeStyle: ->
+      return {
+        display: "inline-block"
+        paddingTop: @paddingTop + "px"
+        lineHeight: @height + "px"
+      }
 
 </script>

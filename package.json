@@ -17,7 +17,7 @@
     "node": "*"
   },
   "dependencies": {
-    "vue-mixins": "^0.2.11"
+    "vue-mixins": "^0.2.13"
   },
   "peerDependencies": {
     "callback-loader": "^0.2.4"
@@ -42,13 +42,13 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "^0.0.26",
     "karma-vue-component": "^0.1.0",
-    "karma-webpack": "^1.7.0",
+    "karma-webpack": "^1.8.0",
     "material-design-icons": "^2.2.3",
     "mdi": "^1.6.50",
-    "mocha": "^3.0.1",
+    "mocha": "^3.0.2",
     "octicons": "^4.3.0",
     "open-iconic": "^1.1.1",
-    "pug": "^2.0.0-beta4",
+    "pug": "^2.0.0-beta5",
     "script-runner": "^0.1.5",
     "svgfont2js": "^0.1.2",
     "svgo": "^0.6.6",
