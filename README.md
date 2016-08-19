@@ -54,7 +54,8 @@ The `height` of the icon will be set to `font-size` and `margin-top` will be set
 Name | type | default | description
 ---:| --- | ---| ---
 name | String | - | (required) name of the icon
-flip | String | - | `v` for vertical and `h` for horizontal flipping
+flip-v | String | - | apply vertical flipping
+flip-h | String | - | apply horizontal flipping
 label | String | name | aria-label
 
 ### Plain icon
@@ -96,6 +97,7 @@ comes without css, so no spinning included, you can do it manually like this:
 ## Changelog
 
 - 1.2.0
+changed flip interface
 fixed `glyphicons`
 removed `display:inline-block` from default style.
 Updated `octicons` - they changed their icon font.

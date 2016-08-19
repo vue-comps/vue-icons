@@ -49,6 +49,10 @@ describe "icon", ->
       el.should.have.attr "viewBox", "-1792 0 1792 1792"
       el.firstChild.should.have.attr "transform","scale(-1,1)"
 
+    it "should flip both", ->
+      el = env.$refs.flipboth.$el.firstChild
+      el.should.have.attr "viewBox", "-512 -512 512 512"
+      el.firstChild.should.have.attr "transform","scale(-1,-1)"
     it "should size", ->
       el = env.$refs.size.$el.firstChild
       el.should.have.attr "height", "32"

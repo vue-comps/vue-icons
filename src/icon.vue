@@ -36,7 +36,12 @@ module.exports =
     scale:
       type: String
       default: "1"
-    flip: String
+    flipH:
+      type: Boolean
+      default: false
+    flipV:
+      type: Boolean
+      default: false
     label: String
     hcenter:
       type: Boolean
@@ -55,22 +60,20 @@ module.exports =
       set = tmp.shift()
       getIcon(set,@Vue.util.camelize(tmp.join("-")))
     box: ->
-      if @flip == "h"
-        s = "0 -#{@icon.h}"
-      else if @flip == "v"
-        s = "-#{@icon.w} 0"
+      if @flipV
+        s = "-#{@icon.w} "
       else
-        s = "0 0"
-      return s+" #{@icon.w} #{@icon.h}"
+        s = "0 "
+      if @flipH
+        s += "-#{@icon.h} "
+      else
+        s += "0 "
+      return s+"#{@icon.w} #{@icon.h}"
     width: -> @icon.w / @icon.h * @height
     height: -> parseFloat(@size)*parseFloat(@scale)
     flipped: ->
-      if @flip == "h"
-        return "scale(1,-1)"
-      else if @flip == "v"
-        return "scale(-1,1)"
-      else
-        return null
+      return null unless @flipH or @flipV
+      return "scale(#{-@flipV*2+1},#{-@flipH*2+1})"
     paddingTop: ->
       if @hcenter and @parent?
         return (@parent.clientHeight-@height)/2
