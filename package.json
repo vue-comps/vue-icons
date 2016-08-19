@@ -17,7 +17,7 @@
     "node": "*"
   },
   "dependencies": {
-    "vue-mixins": "^0.2.13"
+    "vue-mixins": "^0.2.14"
   },
   "peerDependencies": {
     "callback-loader": "^0.2.4"
@@ -32,11 +32,11 @@
     "coffee-script": "^1.10.0",
     "font-awesome": "^4.6.3",
     "gh-pages": "^0.11.0",
-    "karma": "^1.1.2",
+    "karma": "^1.2.0",
     "karma-chai": "^0.1.0",
     "karma-chai-dom": "^1.1.0",
     "karma-chai-spies": "^0.1.4",
-    "karma-chrome-launcher": "^1.0.1",
+    "karma-chrome-launcher": "^2.0.0",
     "karma-firefox-launcher": "^1.0.0",
     "karma-mocha": "^1.1.1",
     "karma-sourcemap-loader": "^0.3.7",
@@ -44,7 +44,7 @@
     "karma-vue-component": "^0.1.0",
     "karma-webpack": "^1.8.0",
     "material-design-icons": "^2.2.3",
-    "mdi": "^1.6.50",
+    "mdi": "^1.7.12",
     "mocha": "^3.0.2",
     "octicons": "^4.3.0",
     "open-iconic": "^1.1.1",
@@ -52,13 +52,12 @@
     "script-runner": "^0.1.5",
     "svgfont2js": "^0.1.2",
     "svgo": "^0.6.6",
-    "template-html-loader": "0.0.3",
     "vue": "^1.0.26",
     "vue-compiler": "^0.3.0",
     "vue-dev-server": "^0.2.10",
     "vue-html-loader": "^1.2.3",
     "vue-loader": "^8.5.3",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.2"
   },
   "keywords": [
     "icon",
@@ -74,7 +73,7 @@
     "build": "run-npm build:*",
     "dev": "vue-dev-server",
     "watch:coffee": "coffee --no-header --watch --output . src/icon-loader.coffee src/icon-font-compatible.coffee",
-    "watch:test": "karma start --browsers Chrome --auto-watch --reporters spec",
+    "watch:test": "karma start --browsers Chromium --auto-watch --reporters spec",
     "watch": "run-npm watch:*",
     "test": "karma start --single-run",
     "preversion": "npm test",

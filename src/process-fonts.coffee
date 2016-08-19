@@ -4,6 +4,7 @@ SVGO = require "svgo"
 svgo = new SVGO()
 Promise = require "bluebird"
 path = require "path"
+svgpath = require("svgpath")
 
 loadAliases = (less,re) ->
   m = {}
@@ -24,10 +25,12 @@ sets =
     re: /glyphicon-([^\s]*)[^\n]*content: "\\([^"]*)"/g
     style: "bootstrap/less/glyphicons.less"
     svg: "bootstrap/fonts/glyphicons-halflings-regular.svg"
+    translateY: 240
   mdi:
     svg: "mdi/fonts/materialdesignicons-webfont.svg"
   octicon:
-    svg: "octicons/octicons/octicons.svg"
+    svg: "octicons/build/font/octicons.svg"
+
   material:
     svg: "material-design-icons/iconfont/MaterialIcons-Regular.svg"
   iconic:
@@ -36,6 +39,7 @@ sets =
     re: /\.oi\[data-glyph=([^\]]+)\]:before { content:'\\([^']+)'; }/g
 
 processSet = (setname,set) ->
+  console.log setname
   if set.re
     aliases = loadAliases(fs.readFileSync(require.resolve(set.style, "utf8")),set.re)
   glyphs = svgfont2js(fs.readFileSync(require.resolve(set.svg, "utf8")))
@@ -43,7 +47,11 @@ processSet = (setname,set) ->
   optimizers = []
   for glyph in glyphs
     optimizers.push new Promise (resolve) ->
-      svgo.optimize "<svg width='#{glyph.width}' height='#{glyph.height}'><path d='#{glyph.path}'/></svg>", (result) ->
+      d = new svgpath(glyph.path)
+      if set.translateY
+        d = d.translate(0, set.translateY)
+      d = d.rel().toString()
+      svgo.optimize "<svg width='#{glyph.width}' height='#{glyph.height}'><path d='#{d}'/></svg>", (result) ->
         match = re.exec(result.data)
         if match?[1]
           glyph.path = match[1]

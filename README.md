@@ -8,8 +8,9 @@ comes with (and prefixes):
 - [Material Design Icons](https://materialdesignicons.com/) - `mdi`
 - [Octicons](https://octicons.github.com/) - `octicon`
 - [Open Iconic](https://useiconic.com/open#icons) - `iconic`
+- [Glyphicons](http://getbootstrap.com/components/#glyphicons) - `glyphicon`
 
-[Glyphicons](http://getbootstrap.com/components/#glyphicons) are currently broken [svgfont2js#1](https://github.com/riobard/svgfont2js/issues/1).
+In `material` spaces in icon names are replaced by `_`, e.g. `material-done_all`.
 
 ### [Demo](https://vue-comps.github.io/vue-icons)
 
@@ -50,11 +51,11 @@ This will load a font-compatible version of the component.
 The `height` of the icon will be set to `font-size` and `margin-top` will be set so it will fit in the middle of `line-height`.
 
 #### Props
-| Name | type | default | description |
-| ---:| --- | ---| --- |
-| name | String | - | (required) name of the icon|
-| flip | String | - | `v` for vertical and `h` for horizontal flipping |
-| label | String | - | aria-label |
+Name | type | default | description
+---:| --- | ---| ---
+name | String | - | (required) name of the icon
+flip | String | - | `v` for vertical and `h` for horizontal flipping
+label | String | name | aria-label
 
 ### Plain icon
 
@@ -63,13 +64,14 @@ if you don't need the font-compatibility you can also use the plain icon compone
 components:
   "icon": require("vue-icons/icon")
 ```
-This has two additional props:
+This has three additional props:
 
-| Name | type | default | description |
-| ---:| --- | ---| --- |
-| size | String | 16 | height of the icon in px |
-| scale | Number | 1 | size multiplier |
-| hcenter | Boolean | false | sets `margin-top` so that the icon will be centered in the parent element |
+Name | type | default | description
+---:| --- | ---| ---
+size | String | 16 | height of the icon in px
+scale | String | 1 | size multiplier
+hcenter | Boolean | false | sets `margin-top` so that the icon will be centered in the parent element
+
 
 #### Spinners
 comes without css, so no spinning included, you can do it manually like this:
@@ -90,6 +92,13 @@ comes without css, so no spinning included, you can do it manually like this:
 ```html
 <icon name="fa-spinner" class="spin"></icon>
 ```
+
+## Changelog
+
+- 1.2.0
+fixed `glyphicons`
+removed `display:inline-block` from default style.
+Updated `octicons` - they changed their icon font.
 
 # Development
 Clone repository.

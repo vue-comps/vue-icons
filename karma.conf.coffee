@@ -24,6 +24,8 @@ module.exports = (config) ->
           "mdi-account-alert"
           "material-build"
           "octicon-logo-github"
+          "octicon-heart"
+          "glyphicon-heart"
           "iconic-wrench"
           ])
     webpackMiddleware:
@@ -42,4 +44,4 @@ module.exports = (config) ->
       require("karma-chai-spies")
       require("karma-vue-component")
     ]
-    browsers: ["Chrome","Firefox"]
+    browsers: ["Chromium","Firefox"]

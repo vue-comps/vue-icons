@@ -24,6 +24,10 @@
     icon(name="material-build",v-ref:material)
   p octicon-logo-github:
     icon(name="octicon-logo-github",v-ref:octicon)
+  p octicon-heart:
+    icon(name="octicon-heart")
+  p glyphicon-heart:
+    icon(name="glyphicon-heart",v-ref:glyphicon)
   p iconic-wrench:
     icon(name="iconic-wrench",v-ref:iconic)
     | (vertical-align:sub):

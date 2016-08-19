@@ -19,5 +19,7 @@ module.exports =
       "mdi-account-alert"
       "material-build"
       "octicon-logo-github"
+      "octicon-heart"
       "iconic-wrench"
+      "glyphicon-heart"
       ])

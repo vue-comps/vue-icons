@@ -44,7 +44,8 @@ module.exports =
 
   data: ->
     parent: null
-
+  compiled: ->
+    @label ?= @name
   ready: ->
     @parent = @$el.parentElement
 
@@ -76,7 +77,6 @@ module.exports =
       return null
     mergeStyle: ->
       return {
-        display: "inline-block"
         paddingTop: @paddingTop + "px"
         lineHeight: @height + "px"
       }
