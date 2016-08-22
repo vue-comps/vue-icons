@@ -21,12 +21,17 @@ module.exports = (config) ->
           "fa-glass"
           "fa-cab"
           "fa-bullhorn"
+          "fa-camera"
+          "fa-ban"
           "mdi-account-alert"
           "material-build"
           "octicon-logo-github"
           "octicon-heart"
-          "glyphicon-heart"
           "iconic-wrench"
+          "glyphicon-heart"
+          "fa-thumbs-up"
+          "fa-beer"
+          "im-IcoMoon"
           ])
     webpackMiddleware:
       noInfo: true

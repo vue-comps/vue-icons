@@ -30,16 +30,20 @@
     icon(name="octicon-heart")
   p glyphicon-heart:
     icon(name="glyphicon-heart",v-ref:glyphicon)
+  p im-IcoMoon:
+    icon(name="im-IcoMoon",v-ref:im)
   p iconic-wrench:
     icon(name="iconic-wrench",v-ref:iconic)
     | (vertical-align:sub):
     icon(name="iconic-wrench" style="vertical-align:sub")
   p(style="height:40px;border: 1px solid black") iconic-wrench (height:40px without hcenter):
     icon(name="iconic-wrench")
-  p(style="height:40px;border: 1px solid black; position:relative") iconic-wrench (height:40px with hcenter) 2px offset for text:
+  p(style="height:40px;border: 1px solid black; position:relative") iconic-wrench (height:40px with hcenter), don't use hcenter with text
     icon(name="iconic-wrench",hcenter,v-ref:hcenter)
-  p(style="line-height:40px;border: 1px solid black; position:relative") iconic-wrench (line-height:40px) 2px offset for icon:
+  p(style="line-height:40px;border: 1px solid black; position:relative") iconic-wrench (line-height:40px)
     icon(name="iconic-wrench")
+  p glyphicon-heart(offset-x=-20, offset-y=20):
+    icon(name="glyphicon-heart",v-ref:offset,offset-x=-20, offset-y=20)
   a(href="https://github.com/vue-comps/vue-icons/blob/master/dev/basic.vue") source
 </template>
 

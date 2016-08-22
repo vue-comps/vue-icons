@@ -4,8 +4,8 @@ span(v-bind:style="computedStyle")
   svg(version="1.1",
     :role="label ? 'img' : 'presentation'",
     :aria-label="label",
-    :width="width",
-    :height="height",
+    :width="outerWidth",
+    :height="outerHeight",
     :view-box.camel="box",
     )
     path(
@@ -31,11 +31,21 @@ module.exports =
       type: String
       required: true
     size:
-      type: String
-      default: "16"
+      type: Number
+      default: 16
+      coerce: Number
     scale:
-      type: String
-      default: "1"
+      type: Number
+      default: 1
+      coerce: Number
+    offsetX:
+      type: Number
+      default: 0
+      coerce: Number
+    offsetY:
+      type: Number
+      default: 0
+      coerce: Number
     flipH:
       type: Boolean
       default: false
@@ -50,38 +60,58 @@ module.exports =
   data: ->
     parent: null
   compiled: ->
-    @label ?= @name
+    @label ?= @processedName[1]
   ready: ->
     @parent = @$el.parentElement
 
   computed:
-    icon: ->
+    processedName: ->
       tmp = @name.split("-")
       set = tmp.shift()
-      getIcon(set,@Vue.util.camelize(tmp.join("-")))
+      return [set,tmp.join("-")]
+    icon: ->
+      getIcon(@processedName[0],@Vue.util.camelize(@processedName[1]))
     box: ->
+      w = @icon.w
+      h = @icon.h
+      wOffset = -w*((@widthRatio-1)/2+@offsetX/100)
+      hOffset = -h*((@heightRatio-1)/2-@offsetY/100)
       if @flipV
-        s = "-#{@icon.w} "
+        s = "-#{w+wOffset} "
       else
-        s = "0 "
+        s = "#{wOffset} "
       if @flipH
-        s += "-#{@icon.h} "
+        s += "-#{h+hOffset} "
       else
-        s += "0 "
-      return s+"#{@icon.w} #{@icon.h}"
-    width: -> @icon.w / @icon.h * @height
-    height: -> parseFloat(@size)*parseFloat(@scale)
+        s += "#{hOffset} "
+      return s+"#{w*@widthRatio} #{h*@heightRatio}"
+    aspect: -> @icon.w / @icon.h
+    innerWidth: -> @aspect * @innerHeight
+    outerWidth: ->
+      w = @innerWidth
+      for child in @$children
+        if child.isStack
+          cw = child.innerWidth*(1+Math.abs(child.offsetX)/50)
+          w = cw if cw > w
+      return w
+    widthRatio: -> @outerWidth/@innerWidth
+    innerHeight: -> @size*@scale
+    outerHeight: ->
+      if @hcenter and @parent?
+        return @parent.clientHeight
+      h = @innerHeight
+      for child in @$children
+        if child.isStack
+          ch = child.innerHeight*(1+Math.abs(child.offsetY)/50)
+          h = ch if ch > h
+      return h
+    heightRatio: -> @outerHeight/@innerHeight
     flipped: ->
       return null unless @flipH or @flipV
       return "scale(#{-@flipV*2+1},#{-@flipH*2+1})"
-    paddingTop: ->
-      if @hcenter and @parent?
-        return (@parent.clientHeight-@height)/2
-      return null
     mergeStyle: ->
       return {
-        paddingTop: @paddingTop + "px"
-        lineHeight: @height + "px"
+        position: "relative"
       }
 
 </script>
