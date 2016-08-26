@@ -8,6 +8,8 @@ ifc =
     elstyle: null
   ready: ->
     @elstyle = window.getComputedStyle(@$el)
+    @onWindowResize =>
+      @elstyle = window.getComputedStyle(@$el)
   props: {}
   computed:
     outerWidth: i.computed.innerWidth

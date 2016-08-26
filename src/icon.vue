@@ -22,6 +22,7 @@ module.exports =
   mixins: [
     require "vue-mixins/vue"
     require "vue-mixins/style"
+    require "vue-mixins/onWindowResize"
   ]
 
   props:
@@ -67,6 +68,9 @@ module.exports =
         @children.push child
   ready: ->
     @parent = @$el.parentElement
+    @onWindowResize =>
+      if @hcenter
+        @parent = @$el.parentElement
 
   computed:
     processedName: ->
