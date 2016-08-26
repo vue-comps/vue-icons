@@ -59,8 +59,12 @@ module.exports =
 
   data: ->
     parent: null
+    children: []
   compiled: ->
     @label ?= @processedName[1]
+    for child in @$children
+      if child.isStack
+        @children.push child
   ready: ->
     @parent = @$el.parentElement
 
@@ -72,6 +76,7 @@ module.exports =
     icon: ->
       getIcon(@processedName[0],@Vue.util.camelize(@processedName[1]))
     box: ->
+      return null unless @heightRatio
       w = @icon.w
       h = @icon.h
       wOffset = -w*((@widthRatio-1)/2+@offsetX/100)
@@ -89,10 +94,9 @@ module.exports =
     innerWidth: -> @aspect * @innerHeight
     outerWidth: ->
       w = @innerWidth
-      for child in @$children
-        if child.isStack
-          cw = child.innerWidth*(1+Math.abs(child.offsetX)/50)
-          w = cw if cw > w
+      for child in @children
+        cw = child.innerWidth*(1+Math.abs(child.offsetX)/50)
+        w = cw if cw > w
       return w
     widthRatio: -> @outerWidth/@innerWidth
     innerHeight: -> @size*@scale
@@ -100,18 +104,22 @@ module.exports =
       if @hcenter and @parent?
         return @parent.clientHeight
       h = @innerHeight
-      for child in @$children
-        if child.isStack
-          ch = child.innerHeight*(1+Math.abs(child.offsetY)/50)
-          h = ch if ch > h
+      for child in @children
+        ch = child.innerHeight*(1+Math.abs(child.offsetY)/50)
+        h = ch if ch > h
       return h
     heightRatio: -> @outerHeight/@innerHeight
     flipped: ->
       return null unless @flipH or @flipV
       return "scale(#{-@flipV*2+1},#{-@flipH*2+1})"
     mergeStyle: ->
-      return {
-        position: "relative"
+      style = {
+        display: "inline-block"
+        height: @outerHeight + "px"
       }
+      if @children?.length > 0
+        style.position = "relative"
+      #style.paddingTop = @marginTop + "px" if @marginTop
+      return style
 
 </script>

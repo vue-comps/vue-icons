@@ -15,13 +15,19 @@ ifc =
       if @elstyle
         return parseFloat @elstyle.getPropertyValue("font-size").replace("px","")
       return null
-    outerHeight: -> @innerHeight
+    outerHeight: ->
+      if @elstyle
+        lh = @elstyle.getPropertyValue("line-height")
+        if lh != "normal"
+          return parseFloat lh.replace("px","")
+        else
+          return @innerHeight
+      return null
     widthRatio: -> 1
-    heightRatio: -> 1
 
 for prop in ["name","offsetX","offsetY","flipH","flipV","label","style"]
   ifc.props[prop] = i.props[prop]
-for c in ["processedName","icon","box","aspect","flipped","mergeStyle"]
+for c in ["processedName","icon","box","aspect","flipped","mergeStyle","heightRatio"]
   ifc.computed[c] = i.computed[c]
 
 module.exports = ifc

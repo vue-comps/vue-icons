@@ -114,12 +114,15 @@ components:
 The normal `icon` will be positioned in the center of the, then larger, boundaries.
 ## Changelog
 
-- 1.3.0
+- 1.4.0  
+changed positioning again (icon-font-compatible with line-height)
+
+- 1.3.0  
 added icon stack  
 added icomoon - `im`  
 changed `octicons` processing to take the direct svg icons instead of the font  
 
-- 1.2.0
+- 1.2.0  
 changed flip interface  
 fixed `glyphicons`  
 removed `display:inline-block` from default style.  

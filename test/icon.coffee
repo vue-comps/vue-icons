@@ -89,11 +89,11 @@ describe "icon", ->
     it "should size", (done) ->
       el = env.$refs.size.$el.firstChild
       env.$nextTick ->
-        el.should.have.attr "height", "20"
+        env.$refs.size.innerHeight.should.equal 20
         done()
 
     it "should line-height", (done) ->
-      #el = env.$refs.lineHeight.$el
+      el = env.$refs.lineHeight.$el.firstChild
       env.$nextTick ->
-        #el.should.have.attr("style").match(/padding-top: 10px/)
+        el.should.have.attr "height", "40"
         done()
