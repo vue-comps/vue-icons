@@ -50,6 +50,7 @@
     "octicons": "^4.3.0",
     "open-iconic": "^1.1.1",
     "pug": "^2.0.0-beta5",
+    "ratchet": "git://github.com/twbs/ratchet.git#v2.0.2",
     "script-runner": "^0.1.5",
     "svgfont2js": "^0.1.2",
     "svgo": "^0.6.6",

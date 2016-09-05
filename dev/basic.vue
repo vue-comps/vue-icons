@@ -32,6 +32,10 @@
     icon(name="glyphicon-heart",v-ref:glyphicon)
   p im-IcoMoon:
     icon(name="im-IcoMoon",v-ref:im)
+  p ra-download:
+    icon(name="ra-download",v-ref:ra)
+  p ra-and-download:
+    icon(name="ra-and-download")
   p iconic-wrench:
     icon(name="iconic-wrench",v-ref:iconic)
     | (vertical-align:sub):

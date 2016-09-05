@@ -41,6 +41,8 @@ sets =
   im:
     folder: "icomoon-free-npm/SVG"
     re: /[0-9]+-([A-Za-z0-9-]+).svg/
+  ra:
+    svg: "ratchet/fonts/ratchicons.svg"
 
 processSet = (setname,set) ->
   console.log "processing " + setname

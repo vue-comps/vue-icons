@@ -6,7 +6,7 @@ span(v-bind:style="computedStyle")
     :aria-label="label",
     :width="outerWidth",
     :height="outerHeight",
-    :view-box.camel="box",
+    :view-box.camel="box"
     )
     path(
       :d="icon.d",

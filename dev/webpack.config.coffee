@@ -27,4 +27,6 @@ module.exports =
       "fa-thumbs-up"
       "fa-beer"
       "im-IcoMoon"
+      "ra-download"
+      "ra-and-download"
       ])

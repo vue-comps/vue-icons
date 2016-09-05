@@ -4,14 +4,14 @@ webpack based - load only what you need - svg inline icons.
 
 comes with (and prefixes):
 - [Font Awesome](https://fortawesome.github.io/Font-Awesome/icons/) - `fa`
-- [Google Material Design Icons](https://design.google.com/icons/) - `material`
+- [Google Material Design Icons](https://design.google.com/icons/) - `material` - spaces in icon names are replaced by `_`, e.g. `material-done_all`.
 - [Material Design Icons](https://materialdesignicons.com/) - `mdi`
 - [Octicons](https://octicons.github.com/) - `octicon`
 - [Open Iconic](https://useiconic.com/open#icons) - `iconic`
 - [Glyphicons](http://getbootstrap.com/components/#glyphicons) - `glyphicon`
 - [IcoMoon-free](https://icomoon.io/#preview-free) - `im`
+- [ratchicons](http://goratchet.com/components/#ratchicons) - `ra` - add `and` for android version `ra-download` -> `ra-and-download`
 
-In `material` spaces in icon names are replaced by `_`, e.g. `material-done_all`.
 
 ### [Demo](https://vue-comps.github.io/vue-icons)
 
@@ -113,6 +113,9 @@ components:
 `offset-x` and `offset-y` on `icon-stack` increase the size of the icon boundaries, so both will stay fully visible.
 The normal `icon` will be positioned in the center of the, then larger, boundaries.
 ## Changelog
+
+- 1.4.1  
+added ratchicons
 
 - 1.4.0  
 changed positioning again (icon-font-compatible with line-height)

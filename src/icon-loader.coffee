@@ -32,6 +32,7 @@ module.exports = (icons) ->
       octicon: require("./icons/octicon.json")
       iconic: require("./icons/iconic.json")
       im: require("./icons/im.json")
+      ra: require("./icons/ra.json")
     sets = {}
     for iconname in icons
       tmp = iconname.split("-")
