@@ -32,6 +32,8 @@ module.exports = (config) ->
           "fa-thumbs-up"
           "fa-beer"
           "im-IcoMoon"
+          "ra-download"
+          "ra-and-download"
           ])
     webpackMiddleware:
       noInfo: true

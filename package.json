@@ -17,7 +17,7 @@
     "node": "*"
   },
   "dependencies": {
-    "vue-mixins": "^0.2.14"
+    "vue-mixins": "^0.3.0"
   },
   "peerDependencies": {
     "callback-loader": "^0.2.4"
