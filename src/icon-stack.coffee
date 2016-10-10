@@ -1,33 +1,35 @@
 # out: ../icon-stack.js
 i = require "./icon"
 iconStack =
-  template: """
-  <svg version="1.1",
-    :role="label ? 'img' : 'presentation'",
-    :aria-label="label",
-    :width="outerWidth",
-    :height="outerHeight",
-    :style="computedStyle",
-    :view-box.camel="box",
-    >
-    <path
-      :d="icon.d",
-      :transform="flipped",
-      fill="currentColor">
-    </path>
-  </svg>
-  """
+  render: ->
+    `with(this){//`
+    return _h 'svg',
+          style:(computedStyle)
+          attrs:
+            "version":"1.1"
+            "role": if label then 'img' else 'presentation'
+            "aria-label":label
+            "width":outerWidth
+            "height":outerHeight
+            "viewBox":box
+          ,[_h 'path',
+            attrs:
+              "d":icon.d
+              "transform":flipped
+              "fill":"currentColor"
+          ]
+    `}`
+
   mixins: i.mixins
   data: i.data
-  ready: i.ready
-  compiled: i.compiled
+  mounted: i.mounted
   props: {}
   computed:
     isStack: -> true
     mergeStyle: ->
       return {
+        left: "0"
         position: "absolute"
-        left: 0
       }
     outerWidth: -> @$parent.outerWidth
     outerHeight: -> @$parent.outerHeight

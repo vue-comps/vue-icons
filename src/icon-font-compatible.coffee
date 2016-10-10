@@ -1,15 +1,15 @@
 # out: ../icon-font-compatible.js
 i = require "./icon"
 ifc =
-  template: i.template
+  render: i.render
   mixins: i.mixins
-  compiled: i.compiled
   data: ->
     elstyle: null
-  ready: ->
-    @elstyle = window.getComputedStyle(@$el)
-    @onWindowResize =>
+  mounted: ->
+    @$nextTick ->
       @elstyle = window.getComputedStyle(@$el)
+      @onWindowResize =>
+        @elstyle = window.getComputedStyle(@$el)
   props: {}
   computed:
     outerWidth: i.computed.innerWidth

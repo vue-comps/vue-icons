@@ -6,7 +6,7 @@ span(v-bind:style="computedStyle")
     :aria-label="label",
     :width="outerWidth",
     :height="outerHeight",
-    :view-box.camel="box"
+    :viewBox="box"
     )
     path(
       :d="icon.d",
@@ -39,19 +39,15 @@ module.exports =
     size:
       type: Number
       default: 16
-      coerce: Number
     scale:
       type: Number
       default: 1
-      coerce: Number
     offsetX:
       type: Number
       default: 0
-      coerce: Number
     offsetY:
       type: Number
       default: 0
-      coerce: Number
     flipH:
       type: Boolean
       default: false
@@ -66,16 +62,15 @@ module.exports =
   data: ->
     parent: null
     children: []
-  compiled: ->
-    @label ?= @processedName[1]
+  mounted: ->
     for child in @$children
       if child.isStack
         @children.push child
-  ready: ->
-    @parent = @$el.parentElement
-    @onWindowResize =>
-      if @hcenter
-        @parent = @$el.parentElement
+    @$nextTick ->
+      @parent = @$el.parentElement
+      @onWindowResize =>
+        if @hcenter
+          @parent = @$el.parentElement
 
   computed:
     processedName: ->

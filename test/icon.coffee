@@ -72,7 +72,9 @@ describe "icon", ->
 
     it "should hcenter", (done) ->
       el = env.$refs.hcenter.$el
-      env.$nextTick ->
+      env.$nextTick -> env.$nextTick ->
+        box = el.getBoundingClientRect()
+        box.height.should.equal 40
         box = el.firstChild.getBoundingClientRect()
         box.height.should.equal 40
         done()

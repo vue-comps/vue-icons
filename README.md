@@ -21,6 +21,8 @@ heavily inspired by [vue-awesome](https://github.com/Justineo/vue-awesome).
 
 ```sh
 npm install --save-dev vue-icons callback-loader
+// vue@1.0
+npm install --save-dev vue-icons@1 callback-loader
 ```
 
 ## Usage
@@ -113,6 +115,8 @@ components:
 `offset-x` and `offset-y` on `icon-stack` increase the size of the icon boundaries, so both will stay fully visible.
 The normal `icon` will be positioned in the center of the, then larger, boundaries.
 ## Changelog
+- 2.0.0  
+added vue 2.0.0 compatibility  
 
 - 1.4.2  
 added error messages  
