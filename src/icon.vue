@@ -16,7 +16,12 @@ span(v-bind:style="computedStyle")
 </template>
 
 <script lang="coffee" >
+getIcons = ->
 getIcons()
+if process.env.NODE_ENV != 'production' and not getIcon?
+  console.error "icon-loader wasn't called - please see vue-icons documentation on how to setup webpack"
+  getIcon = (name1,name2)->
+    console.error "vue-icons isn't setup properly - failed to get #{name1}-#{name2}"
 module.exports =
 
   mixins: [

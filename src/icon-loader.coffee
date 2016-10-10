@@ -54,9 +54,16 @@ module.exports = (icons) ->
 
     function getIcon(coll, name) {
       set = sets[coll]
+      if (process.env.NODE_ENV !== 'production' && (typeof set === "undefined" || set === null)){
+        console.warn("vue-icons - icon collection "+coll+" not found, is your webpack set up correctly?")
+      }
       if (set.a[name] != null) {
         name = set.a[name]
       }
-      return set.i[name]
+      var icon = set.i[name]
+      if (process.env.NODE_ENV !== 'production' && (typeof icon === "undefined" || icon === null)) {
+        console.warn("vue-icons - icon "+coll+"-"+name+" not found, is your webpack set up correctly?")
+      }
+      return icon
     }
     """

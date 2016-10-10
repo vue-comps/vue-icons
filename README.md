@@ -114,11 +114,14 @@ components:
 The normal `icon` will be positioned in the center of the, then larger, boundaries.
 ## Changelog
 
+- 1.4.2  
+added error messages  
+
 - 1.4.1  
-added ratchicons
+added ratchicons  
 
 - 1.4.0  
-changed positioning again (icon-font-compatible with line-height)
+changed positioning again (icon-font-compatible with line-height)  
 
 - 1.3.0  
 added icon stack  
