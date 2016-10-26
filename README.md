@@ -53,6 +53,12 @@ see [`dev/`](https://github.com/vue-comps/vue-icons/tree/master/dev) for example
 This will load a font-compatible version of the component.
 The `height` of the icon will be set to `font-size` and as `svg` render as inline item, it will fit in the middle of `line-height` and responds to `vertical-align` similar as normal glyphs.
 
+### ERROR: Module build failed: SyntaxError: 'with' in strict mode
+Currently [buble](https://gitlab.com/Rich-Harris/buble) is injecting `strict` mode in all processed js files. The down to ES5 compiled component contains `with`, which is forbidden in `strict` mode.
+Buble is used, for example, in rollup, which is used in laravel.
+
+If you are running in this problem, make sure to exclude this component from processing with buble.
+
 #### Props
 Name | type | default | description
 ---:| --- | ---| ---
