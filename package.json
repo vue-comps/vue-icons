@@ -30,6 +30,7 @@
     "chai-spies": "^0.7.1",
     "coffee-loader": "^0.7.2",
     "coffee-script": "^1.11.1",
+    "css-loader": "^0.26.1",
     "font-awesome": "^4.6.3",
     "gh-pages": "^0.11.0",
     "icomoon-free-npm": "0.0.0",
@@ -54,11 +55,12 @@
     "script-runner": "^0.1.5",
     "svgfont2js": "^0.1.2",
     "svgo": "^0.7.1",
-    "vue": "^2.0.1",
+    "vue": "^2.1.8",
     "vue-compiler": "^2.0.0",
     "vue-dev-server": "^2.0.0",
     "vue-html-loader": "^1.2.3",
-    "vue-loader": "^9.5.1",
+    "vue-loader": "^10.0.2",
+    "vue-template-compiler": "^2.1.8",
     "webpack": "^1.13.2"
   },
   "keywords": [
