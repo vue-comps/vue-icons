@@ -3,7 +3,7 @@ i = require "./icon"
 iconStack =
   render: ->
     `with(this){//`
-    return _h 'svg',
+    return $createElement 'svg',
           style:(computedStyle)
           attrs:
             "version":"1.1"
@@ -12,7 +12,7 @@ iconStack =
             "width":outerWidth
             "height":outerHeight
             "viewBox":box
-          ,[_h 'path',
+          ,[$createElement 'path',
             attrs:
               "d":icon.d
               "transform":flipped
