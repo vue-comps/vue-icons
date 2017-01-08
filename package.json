@@ -1,7 +1,7 @@
 {
   "name": "vue-icons",
   "description": "webpack based - load only what you need - svg inline icons",
-  "version": "2.0.0",
+  "version": "2.0.1a",
   "homepage": "https://github.com/vue-comps",
   "author": {
     "name": "Paul Pflugradt",
