@@ -16,6 +16,7 @@ span(v-bind:style="computedStyle")
 </template>
 
 <script lang="coffee" >
+camelize = (str) -> str.replace /-(\w)/g, (_, c) -> if c then c.toUpperCase() else ''
 getIcons = ->
 getIcons()
 if process.env.NODE_ENV != 'production' and not getIcon?
@@ -78,7 +79,7 @@ module.exports =
       set = tmp.shift()
       return [set,tmp.join("-")]
     icon: ->
-      getIcon(@processedName[0],@Vue.util.camelize(@processedName[1]))
+      getIcon(@processedName[0],camelize(@processedName[1]))
     box: ->
       return null unless @heightRatio
       w = @icon.w
