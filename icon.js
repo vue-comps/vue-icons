@@ -1,5 +1,15 @@
 ;(function(){
-var getIcon, getIcons;
+var camelize, getIcon, getIcons;
+
+camelize = function(str) {
+  return str.replace(/-(\w)/g, function(_, c) {
+    if (c) {
+      return c.toUpperCase();
+    } else {
+      return '';
+    }
+  });
+};
 
 getIcons = function() {};
 
@@ -88,7 +98,7 @@ module.exports = {
       return [set, tmp.join("-")];
     },
     icon: function() {
-      return getIcon(this.processedName[0], this.Vue.util.camelize(this.processedName[1]));
+      return getIcon(this.processedName[0], camelize(this.processedName[1]));
     },
     box: function() {
       var h, hOffset, s, w, wOffset;
