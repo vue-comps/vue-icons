@@ -1,3 +1,5 @@
+# DEPRECATED see [cerijs](https://github.com/cerijs) and [ceri-icon](https://github.com/ceri-comps/ceri-icon)
+
 # vue-icons
 
 webpack based - load only what you need - svg inline icons.
