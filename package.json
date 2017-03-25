@@ -52,7 +52,7 @@
     "pug": "^2.0.0-beta6",
     "ratchet": "git://github.com/twbs/ratchet.git#v2.0.2",
     "script-runner": "^0.1.5",
-    "svgfont2js": "^0.1.2",
+    "svgfont2js": "git+https://github.com/jGleitz/svgfont2js.git#90c8ccb6f42d2b93182789b2cc2a5ebcee8ebb8c",
     "svgo": "^0.7.1",
     "vue": "^2.0.1",
     "vue-compiler": "^2.0.0",
