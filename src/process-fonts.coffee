@@ -122,5 +122,10 @@ processSet = (setname,set) ->
   .then JSON.stringify
   .then (string) ->
     fs.writeFileSync(path.resolve(__dirname+"/../icons/#{setname}.json"),string)
+
+iconsDir = './icons';
+unless fs.existsSync(iconsDir)
+  fs.mkdirSync(iconsDir)
+
 for setname, set of sets
   processSet(setname,set)
